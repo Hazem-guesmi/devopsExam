@@ -1,0 +1,19 @@
+apiVersion: 1
+kind: Deployment
+metadata:
+  name: Examen-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deployment
+  template:
+    metadata:
+      labels:
+        app: deployment
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts
+        ports:
+        - containerPort: 8080
